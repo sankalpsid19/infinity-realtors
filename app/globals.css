@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Elegant light theme: neutral background, deep navy text, gold accents */
+  --background: #fdfdfc;
+  --foreground: #0f172a;
+  --primary: #d4af37; /* Metallic gold */
+  --primary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #1e293b; /* Deep slate */
+  --accent-foreground: #f8fafc;
+  --border: #e2e8f0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.8s ease-out forwards;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Sophisticated dark theme */
+    --background: #09090b;
+    --foreground: #fafafa;
+    --primary: #ebd27b; /* Softer gold for dark mode */
+    --primary-foreground: #09090b;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --accent: #18181b;
+    --accent-foreground: #fafafa;
+    --border: #27272a;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), serif;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
